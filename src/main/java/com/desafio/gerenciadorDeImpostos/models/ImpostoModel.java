@@ -12,7 +12,7 @@ public class ImpostoModel {
     private  Long id;
 
     @Column(nullable = false, unique = true)
-    private String nome;
+    private String name;
 
     @Column(nullable = false)
     private Double aliquota;

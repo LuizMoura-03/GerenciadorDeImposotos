@@ -11,7 +11,7 @@ import org.springframework.data.annotation.Id;
 @Setter
 @NoArgsConstructor
 @Table(name = "roles")
-public class ModelRole {
+public class RoleModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
