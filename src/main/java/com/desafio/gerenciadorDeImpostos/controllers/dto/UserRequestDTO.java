@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
-public class UseRequestDTO {
+public class UserRequestDTO {
 
     @NotBlank(message = "O nome de usuario é obrigatorio.")
     private String username;
