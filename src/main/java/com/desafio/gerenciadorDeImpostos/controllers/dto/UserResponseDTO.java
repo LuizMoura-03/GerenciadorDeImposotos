@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
-public class UserReponseDTO {
+public class UserResponseDTO {
     private Long id;
     private String username;
     private Set<String> roles;
