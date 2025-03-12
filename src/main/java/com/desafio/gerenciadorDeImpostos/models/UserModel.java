@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import javax.management.relation.Role;
 import java.util.Set;
 
 @Entity
