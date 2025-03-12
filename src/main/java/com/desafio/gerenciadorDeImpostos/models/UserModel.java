@@ -23,7 +23,7 @@ public class UserModel {
 
     @NotBlank(message = "O nome de usuário é obrigatório.")
     @Column(nullable = false, unique = true)
-    private String userName;
+    private String username;
 
     @NotBlank(message = "A senha é obrigatória.")
     @Column(nullable = false)
@@ -37,4 +37,5 @@ public class UserModel {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private Set<RoleModel> roles;
+
 }
