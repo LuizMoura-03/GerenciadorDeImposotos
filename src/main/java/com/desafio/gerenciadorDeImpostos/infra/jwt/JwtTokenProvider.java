@@ -7,4 +7,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 public class JwtTokenProvider{
 
 
+    public boolean validateToken(String token) {
+    }
+
+    public String getUsernameFromToken(String token) {
+    }
 }
