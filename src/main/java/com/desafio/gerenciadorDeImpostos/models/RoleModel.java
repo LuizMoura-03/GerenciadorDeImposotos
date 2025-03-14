@@ -20,4 +20,8 @@ public class RoleModel {
     @Column(nullable = false, unique = true)
     private String name;
 
+    public RoleModel(String name) {
+        this.name = name;
+    }
+
 }
