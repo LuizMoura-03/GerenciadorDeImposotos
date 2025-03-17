@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CalculoImpostoRequestDTO {
+
+    @NotNull(message = "O ID do imposto é obrigatorio.")
+    private Long impostoId;
+
     @NotNull(message = "O valor base para calculo do imposto é obrigatorio")
     @Positive(message = "O valor base deve ser maior que zero")
     private Double valorBase;

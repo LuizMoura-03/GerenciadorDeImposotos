@@ -10,16 +10,16 @@ public class ImpostoMapper {
 
     public ImpostoModel toEntity(ImpostoRequestDTO impostoRequestDTO) {
         return ImpostoModel.builder()
-                .nome(impostoRequestDTO.getNome())
+                .name(impostoRequestDTO.getName())
                 .aliquota(impostoRequestDTO.getAliquota())
                 .build();
     }
 
     public ImpostoResponseDTO toResponse(ImpostoModel impostoModel) {
         return ImpostoResponseDTO.builder()
-                .id(imposto.getId())
-                .nome(imposto.getNome())
-                .aliquota(imposto.getAliquota())
+                .id(impostoModel.getId())
+                .name(impostoModel.getName())
+                .aliquota(impostoModel.getAliquota())
                 .build();
     }
 
