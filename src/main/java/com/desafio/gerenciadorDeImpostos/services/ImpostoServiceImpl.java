@@ -5,6 +5,7 @@ import com.desafio.gerenciadorDeImpostos.controllers.dto.CalculoImpostoResponseD
 import com.desafio.gerenciadorDeImpostos.controllers.dto.ImpostoRequestDTO;
 import com.desafio.gerenciadorDeImpostos.controllers.dto.ImpostoResponseDTO;
 import com.desafio.gerenciadorDeImpostos.exception.ImpostoNaoEncontradoException;
+import com.desafio.gerenciadorDeImpostos.exception.NomeImpostoDuplicadoException;
 import com.desafio.gerenciadorDeImpostos.mappers.ImpostoMapper;
 import com.desafio.gerenciadorDeImpostos.models.ImpostoModel;
 import com.desafio.gerenciadorDeImpostos.repositories.ImpostoRepository;
