@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ImpostoServiceImpl {
+public class ImpostoServiceImpl implements ImpostoService{
 
     private final ImpostoRepository impostoRepository;
     private final ImpostoMapper impostoMapper;
@@ -39,6 +39,11 @@ public class ImpostoServiceImpl {
         ImpostoModel impostoModel = impostoMapper.toEntity(impostoRequest);
         ImpostoModel savedImposto = impostoRepository.save(impostoModel);
         return impostoMapper.toResponse(savedImposto);
+    }
+
+    @Override
+    public CalculoImpostoResponseDTO calcularImposto(CalculoImpostoRequestDTO calcularImpostoRequestDTO) {
+        return calculoImpostoResponseDTO(calcularImpostoRequestDTO);
     }
 
     public CalculoImpostoResponseDTO calculoImpostoResponseDTO(CalculoImpostoRequestDTO calcularImpostoRequest) {
