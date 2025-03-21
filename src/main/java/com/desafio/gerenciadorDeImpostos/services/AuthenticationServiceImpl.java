@@ -35,7 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public LoginResponseDTO authenticate(LoginRequestDTO loginRequestDTO) {
         logger.info("Tentativa de autenticação para o usuario: {}", loginRequestDTO.getName());
 
-        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getName())
+        UserModel userModel = userRepository.findByName(loginRequestDTO.getName())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
 
         validatePassword(loginRequestDTO.getPassword(), userModel.getPassword());

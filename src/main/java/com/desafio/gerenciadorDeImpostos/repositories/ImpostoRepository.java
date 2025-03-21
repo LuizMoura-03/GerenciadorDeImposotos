@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ImpostoRepository extends JpaRepository<ImpostoModel, Long> {
-    boolean existsByNome(String name);
+    boolean existsByName(String name);
 }

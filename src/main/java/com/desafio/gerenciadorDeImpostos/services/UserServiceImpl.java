@@ -29,7 +29,7 @@ import static org.codehaus.groovy.runtime.DefaultGroovyMethods.collect;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -39,7 +39,7 @@ public class UserServiceImpl {
 
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
         String username = userRequestDTO.getName();
-        if (userRepository.existsByUsername(username)) {
+        if (userRepository.existsByName(username)) {
             throw new DuplicateUsernameException("Usuário já cadastrado no sistema");
         }
 
@@ -64,7 +64,7 @@ public class UserServiceImpl {
 
 
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
-        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getName())
+        UserModel userModel = userRepository.findByName(loginRequestDTO.getName())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
 
         if (!bCryptPasswordEncoder.matches(loginRequestDTO.getPassword(), userModel.getPassword())) {

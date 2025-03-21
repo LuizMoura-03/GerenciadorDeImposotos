@@ -79,7 +79,7 @@ public class ImpostoServiceImpl implements ImpostoService{
     }
 
     private void validateDuplicateImpostoName(String name) {
-        if (impostoRepository.existsByNome(name)) {
+        if (impostoRepository.existsByName(name)) {
             throw new NomeImpostoDuplicadoException("Imposto já cadastrado no sistema");
         }
     }

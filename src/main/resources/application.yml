@@ -5,6 +5,8 @@ jwt:
 
 # Configuração do banco de dados
 spring:
+  application:
+    name: gerenciadorDeImpostos
   datasource:
     url: jdbc:postgresql://localhost:5432/impostosdb
     username: postgres
@@ -15,6 +17,14 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      logging:
+        level:
+          org:
+            springdoc: DEBUG
+            springframework: DEBUG
 
 # Configuração de segurança
 
@@ -27,3 +37,9 @@ spring:
 # Configurações do servidor
 server:
   port: 8080
+
+# Configuração da API OpenAI
+ai:
+  openai:
+    api-key: YOUR_OPENAI_API_KEY
+
