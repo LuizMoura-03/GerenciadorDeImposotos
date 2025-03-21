@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-
+import jakarta.persistence.Id;
 import java.util.Set;
 
 @Entity
@@ -23,7 +22,7 @@ public class UserModel {
 
     @NotBlank(message = "O nome de usuário é obrigatório.")
     @Column(nullable = false, unique = true)
-    private String username;
+    private String name;
 
     @NotBlank(message = "A senha é obrigatória.")
     @Column(nullable = false)

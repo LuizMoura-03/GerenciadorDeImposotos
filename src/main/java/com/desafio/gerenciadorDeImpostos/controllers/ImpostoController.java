@@ -16,10 +16,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/impostos")
-@RequiredArgsConstructor
 public class ImpostoController {
 
     private final ImpostoService impostoService;
+
+    public ImpostoController(ImpostoService impostoService) {
+        this.impostoService = impostoService;
+    }
 
     @GetMapping("/tipos")
     public ResponseEntity<List<ImpostoResponseDTO>> getAllImpostos() {

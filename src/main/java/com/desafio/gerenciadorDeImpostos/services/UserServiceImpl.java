@@ -38,13 +38,13 @@ public class UserServiceImpl {
     private final JwtTokenProvider jwtTokenProvider;
 
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
-        String username = userRequestDTO.getUsername();
+        String username = userRequestDTO.getName();
         if (userRepository.existsByUsername(username)) {
             throw new DuplicateUsernameException("Usuário já cadastrado no sistema");
         }
 
         UserModel userModel = new UserModel();
-        userModel.setUsername(username);
+        userModel.setName(username);
         userModel.setPassword(bCryptPasswordEncoder.encode(userRequestDTO.getPassword()));
 
         Set<RoleModel> roles = userRequestDTO.getRoles().stream()
@@ -59,12 +59,12 @@ public class UserServiceImpl {
                 .map(RoleModel::getName)
                 .collect(Collectors.toSet());
 
-        return new UserResponseDTO(userModel.getId(), userModel.getUsername(), stringRoles);
+        return new UserResponseDTO(userModel.getId(), userModel.getName(), stringRoles);
     }
 
 
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
-        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getUsername())
+        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getName())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
 
         if (!bCryptPasswordEncoder.matches(loginRequestDTO.getPassword(), userModel.getPassword())) {
@@ -72,7 +72,7 @@ public class UserServiceImpl {
         }
 
         CustomUserDetails userDetails = (CustomUserDetails) customUserDetailsService
-                .loadUserByUsername(loginRequestDTO.getUsername());
+                .loadUserByUsername(loginRequestDTO.getName());
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(
                 userDetails, null, userDetails.getAuthorities());

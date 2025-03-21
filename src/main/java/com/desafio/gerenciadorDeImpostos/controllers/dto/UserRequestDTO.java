@@ -10,7 +10,7 @@ import java.util.Set;
 public class UserRequestDTO {
 
     @NotBlank(message = "O nome de usuario é obrigatorio.")
-    private String username;
+    private String name;
 
     @NotBlank(message = "A senha é obrigatoria não pode ser vazia.")
     private String password;

@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado com o username: " + userName));
 
         return new User(
-                userModel.getUsername(),
+                userModel.getName(),
                 userModel.getPassword(), // Senha
                 userModel.getRoles() // Papéis (roles)
                         .stream()

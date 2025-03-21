@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class UserMapper {
     public UserModel toEntity(UserRequestDTO userRequestDTO, String encodedPassword, Set<RoleModel> roles) {
         return UserModel.builder()
-                .username(userRequestDTO.getUsername())
+                .name(userRequestDTO.getName())
                 .password(encodedPassword)
                 .roles(roles)
                 .build();
@@ -23,6 +23,6 @@ public class UserMapper {
         Set<String> roleNames = user.getRoles().stream()
                 .map(RoleModel::getName)
                 .collect(Collectors.toSet());
-        return new UserResponseDTO(user.getId(), user.getUsername(), roleNames);
+        return new UserResponseDTO(user.getId(), user.getName(), roleNames);
     }
 }

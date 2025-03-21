@@ -1,0 +1,29 @@
+# Configuração do JWT
+jwt:
+  secret: 3k9J2+7k5f8h1L9m2Pq7Xy8Z0aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890==
+  expiration: 300000 # 5 minutos em milissegundos
+
+# Configuração do banco de dados
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/impostosdb
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Configuração de segurança
+
+  security:
+    user:
+      name: admin
+      password: admin123
+      roles: ADMIN
+
+# Configurações do servidor
+server:
+  port: 8080

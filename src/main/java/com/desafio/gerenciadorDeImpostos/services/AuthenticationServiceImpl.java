@@ -33,14 +33,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(AuthenticationServiceImpl.class);
 
     public LoginResponseDTO authenticate(LoginRequestDTO loginRequestDTO) {
-        logger.info("Tentativa de autenticação para o usuario: {}", loginRequestDTO.getUsername());
+        logger.info("Tentativa de autenticação para o usuario: {}", loginRequestDTO.getName());
 
-        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getUsername())
+        UserModel userModel = userRepository.findByUserName(loginRequestDTO.getName())
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado!"));
 
         validatePassword(loginRequestDTO.getPassword(), userModel.getPassword());
 
-        String token = generateToken(loginRequestDTO.getUsername());
+        String token = generateToken(loginRequestDTO.getName());
 
         logger.info("Autenticação bem-sucedida: {}", loginRequestDTO.getPassword());
         return new LoginResponseDTO(token);
