@@ -1,17 +1,18 @@
 # Configuração do JWT
 jwt:
   secret: 3k9J2+7k5f8h1L9m2Pq7Xy8Z0aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890==
-  expiration: 300000 # 5 minutos em milissegundos
+  expiration: 1800000 # 30 minutos em milissegundos
 
-# Configuração do banco de dados
+# Configuração do banco de dadosa
 spring:
   application:
     name: gerenciadorDeImpostos
   datasource:
     url: jdbc:postgresql://localhost:5432/impostosdb
-    username: postgres
-    password: 123
+    username: ${DATABASE_NAME:postgres}
+    password: ${DATABASE_PASSWORD:123}
     driver-class-name: org.postgresql.Driver
+
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -20,27 +21,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
-      logging:
-        level:
-          org:
-            springdoc: DEBUG
-            springframework: DEBUG
 
 # Configuração de segurança
-
   security:
     user:
       name: admin
-      password: admin123
-      roles: ADMIN
+      password: 123
+
 
 # Configurações do servidor
 server:
-  port: 8080
-
-# Configuração da API OpenAI
-ai:
-  openai:
-    api-key: YOUR_OPENAI_API_KEY
-
-
+  port: ${SERVER_PORT:8080}
