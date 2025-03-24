@@ -11,7 +11,9 @@ public class ImpostoMapper {
     public ImpostoModel toEntity(ImpostoRequestDTO impostoRequestDTO) {
         return ImpostoModel.builder()
                 .name(impostoRequestDTO.getName())
+                .descricao(impostoRequestDTO.getDescricao())
                 .aliquota(impostoRequestDTO.getAliquota())
+                .valorFixoImposto(impostoRequestDTO.getValorFixoImposto())
                 .build();
     }
 
@@ -19,7 +21,9 @@ public class ImpostoMapper {
         return ImpostoResponseDTO.builder()
                 .id(impostoModel.getId())
                 .name(impostoModel.getName())
+                .descricao(impostoModel.getDescricao())
                 .aliquota(impostoModel.getAliquota())
+                .valorFixoImposto(impostoModel.getValorFixoImposto())
                 .build();
     }
 
