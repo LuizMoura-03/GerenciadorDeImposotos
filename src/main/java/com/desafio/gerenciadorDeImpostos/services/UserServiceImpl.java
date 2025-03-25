@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService{
 
         Set<RoleModel> roles = userRequestDTO.getRoles().stream()
                 .map(roleName -> roleRepository.findByName(roleName)
-                        .orElseGet(() -> roleRepository.save(new RoleModel(1L, roleName))))
+                        .orElseGet(() -> roleRepository.save(new RoleModel(roleName))))
                 .collect(Collectors.toSet());
 
         userModel.setRoles(roles);

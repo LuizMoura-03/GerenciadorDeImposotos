@@ -26,7 +26,7 @@ public class UserModelTest {
     @Test
     void testValidUserModel() {
         Set<RoleModel> roles = new HashSet<>();
-        roles.add(new RoleModel(1L, "ADMIN"));
+        roles.add(new RoleModel("ADMIN"));
 
         UserModel user = UserModel.builder()
                 .id(1L)
@@ -42,7 +42,7 @@ public class UserModelTest {
     @Test
     void testInvalidUserModel_NameIsBlank() {
         Set<RoleModel> roles = new HashSet<>();
-        roles.add(new RoleModel(1L, "ADMIN"));
+        roles.add(new RoleModel("ADMIN"));
 
         UserModel user = UserModel.builder()
                 .id(1L)
@@ -59,7 +59,7 @@ public class UserModelTest {
     @Test
     void testInvalidUserModel_PasswordIsBlank() {
         Set<RoleModel> roles = new HashSet<>();
-        roles.add(new RoleModel(1L, "ADMIN"));
+        roles.add(new RoleModel("ADMIN"));
 
         UserModel user = UserModel.builder()
                 .id(1L)
@@ -95,7 +95,7 @@ public class UserModelTest {
         user.setPassword("password123");
 
         Set<RoleModel> roles = new HashSet<>();
-        roles.add(new RoleModel(1L, "ADMIN"));
+        roles.add(new RoleModel("ADMIN"));
         user.setRoles(roles);
 
         assertEquals(1L, user.getId());
@@ -107,7 +107,7 @@ public class UserModelTest {
     @Test
     void testConstructor() {
         Set<RoleModel> roles = new HashSet<>();
-        roles.add(new RoleModel(1L, "ADMIN"));
+        roles.add(new RoleModel("ADMIN"));
 
         UserModel user = new UserModel(1L, "Luiz", "password123", roles);
 
