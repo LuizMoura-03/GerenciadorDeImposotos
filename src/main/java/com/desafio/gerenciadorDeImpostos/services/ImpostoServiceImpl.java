@@ -58,7 +58,6 @@ public class ImpostoServiceImpl implements ImpostoService{
                 .build();
     }
 
-
     public void deleteImpostoById(Long id) {
         if (!impostoRepository.existsById(id)) {
             throw new ImpostoNaoEncontradoException("Imposto não encontrado");
