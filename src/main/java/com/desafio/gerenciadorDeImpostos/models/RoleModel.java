@@ -1,6 +1,7 @@
 package com.desafio.gerenciadorDeImpostos.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class RoleModel {
     private Long id;
 
     @Column(nullable = false, unique = true)
+    @NotNull
     private String name;
 
     public RoleModel(String name) {

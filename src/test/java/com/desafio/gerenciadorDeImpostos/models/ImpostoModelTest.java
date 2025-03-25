@@ -15,13 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ImpostoModelTest {
 
-    @Mock
     private Validator validator;
     private ImpostoModel imposto;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 
