@@ -6,9 +6,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RoleModelTest {
@@ -24,7 +22,7 @@ public class RoleModelTest {
     @Test
     void testValidRoleModel() {
 
-        RoleModel role = new RoleModel("ADMIN"); // Cria um objeto RoleModel valido
+        RoleModel role = new RoleModel(1L, "ADMIN"); // Cria um objeto RoleModel valido
 
         Set<ConstraintViolation<RoleModel>> violations = validator.validate(role);  // Valida o objeto
 
@@ -34,7 +32,7 @@ public class RoleModelTest {
     @Test
     void testInvalidRoleModel() {
 
-        RoleModel role = new RoleModel(null);  // Cria um objeto RoleModel invalido (nome nulo)
+        RoleModel role = new RoleModel(1L, null);  // Cria um objeto RoleModel invalido (nome nulo)
 
         Set<ConstraintViolation<RoleModel>> violations = validator.validate(role);
 
@@ -43,13 +41,13 @@ public class RoleModelTest {
 
     @Test
     void testRoleModelConstructor() {
-        RoleModel role = new RoleModel("USER");
+        RoleModel role = new RoleModel(1L, "USER");
         assertEquals("USER", role.getName(), "O construtor deve inicializar o nome corretamente");
     }
 
     @Test
     void testRoleModelSettersAndGetters() {
-        RoleModel role = new RoleModel();
+        RoleModel role = new RoleModel(1L, "ADMIN");
         role.setName("MANAGER");
         assertEquals("MANAGER", role.getName(), "O setter e o getter de 'name' devem funcionar corretamente");
 

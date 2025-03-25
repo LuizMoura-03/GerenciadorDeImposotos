@@ -22,7 +22,7 @@ public class RoleModel {
     @NotNull
     private String name;
 
-    public RoleModel(String name) {
+    public RoleModel(long l, String name) {
         this.name = name;
     }
 
