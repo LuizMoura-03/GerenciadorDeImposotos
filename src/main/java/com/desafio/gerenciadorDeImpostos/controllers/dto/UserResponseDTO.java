@@ -9,6 +9,6 @@ import java.util.Set;
 @AllArgsConstructor
 public class UserResponseDTO {
     private Long id;
-    private String username;
+    private String name;
     private Set<String> roles;
 }
