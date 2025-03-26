@@ -107,7 +107,7 @@ public class UserServiceImplTest {
         when(userRepository.findByName("testUser")).thenReturn(Optional.of(userModel));
         when(bCryptPasswordEncoder.matches("password", "encodedPassword")).thenReturn(true);
         when(customUserDetailsService.loadUserByUsername("testUser")).thenReturn(userDetails);
-        when(jwtTokenProvider.generateToken()).thenReturn("jwtToken");
+        when(jwtTokenProvider.generateToken("testUser")).thenReturn("jwtToken");
 
         LoginResponseDTO response = userServiceImpl.login(loginRequestDTO);
 
@@ -117,7 +117,7 @@ public class UserServiceImplTest {
         verify(userRepository, times(1)).findByName("testUser");
         verify(bCryptPasswordEncoder, times(1)).matches("password", "encodedPassword");
         verify(customUserDetailsService, times(1)).loadUserByUsername("testUser");
-        verify(jwtTokenProvider, times(1)).generateToken();
+        verify(jwtTokenProvider, times(1)).generateToken("testUser");
     }
 
     @Test

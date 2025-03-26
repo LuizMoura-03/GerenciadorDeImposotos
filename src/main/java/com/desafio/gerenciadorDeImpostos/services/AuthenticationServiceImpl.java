@@ -40,7 +40,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         validatePassword(loginRequestDTO.getPassword(), userModel.getPassword());
 
-        String token = generateToken(loginRequestDTO.getName());
+        String token = jwtTokenProvider.generateToken(userModel.getName());
 
         logger.info("Autenticação bem-sucedida: {}", loginRequestDTO.getPassword());
         return new LoginResponseDTO(token);

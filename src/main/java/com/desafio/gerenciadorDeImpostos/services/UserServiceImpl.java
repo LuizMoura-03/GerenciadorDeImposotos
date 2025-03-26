@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService{
 
         String username = authentication.getName();
 
-        String token = jwtTokenProvider.generateToken();
+        String token = jwtTokenProvider.generateToken("testUser");
 
         return new LoginResponseDTO(token);
     }
