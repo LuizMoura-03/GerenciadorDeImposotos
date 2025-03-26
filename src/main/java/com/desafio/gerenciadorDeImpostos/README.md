@@ -201,7 +201,7 @@ expiration: 1800000 # 30 minutos
 * Maven
 * PostgreSQL
 
-   2. Clonar o repositório:
+2. Clonar o repositório:
 
 
 
@@ -220,7 +220,7 @@ cd gerenciadorDeImpostos
 
       5. Acessar a aplicação:
 
-* A API estará disponível em: http://localhost:8080
+* A  API estará disponível em: http://localhost:8080
 
 ## Testes
     1. Executar os testes:
