@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: impostosdb
+    networks:
+      - gerenciadorDeImpostos-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: on-failure
+    ports:
+      - "5432:5432"
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gerenciadorDeImpostos-container
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/impostosdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123
+      SERVER_PORT: 8080
+    depends_on:
+      - postgres
+    networks:
+      - gerenciadorDeImpostos-network
+    ports:
+      - "8080:8080"
+
+networks:
+  gerenciadorDeImpostos-network:
+
+volumes:
+  postgres-data:
